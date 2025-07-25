@@ -34,7 +34,10 @@ func UnescapeString(input string) (string, error) {
 			for i < length && unicode.IsDigit(runes[i]) {
 				i++
 			}
-			count, _ := strconv.Atoi(string(runes[start:i]))
+			count, err := strconv.Atoi(string(runes[start:i]))
+			if err != nil {
+				return "", errors.Unwrap(err)
+			}
 
 			if count <= 0 {
 				return "", errors.New("invalid repeat count")
