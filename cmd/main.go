@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
-	"unescapeString"
+	"unescapestring"
 )
 
 func main() {
-	s, err := unescapeString.UnescapeString("a\\12b3")
+	s, err := unescapestring.UnescapeString("a\\12b3")
 	if err != nil {
 		log.Printf("%s", err)
 	}

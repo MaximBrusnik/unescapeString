@@ -1,4 +1,4 @@
-package unescapeString
+package unescapestring
 
 import (
 	"errors"
