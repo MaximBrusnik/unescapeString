@@ -81,12 +81,26 @@ func TestUnescapeString(t *testing.T) {
 			name:     "negative repeat count",
 			input:    "a-1",
 			expected: "a-",
-			wantErr:  false, // "-1" трактуется как символы '-', '1'
+			wantErr:  false,
 		},
 		{
 			name:     "unicode characters",
 			input:    "я3",
 			expected: "яяя",
+			wantErr:  false,
+		},
+		// Cyrillic
+		{
+			name:     "cyrillic characters",
+			input:    "я3ш2",
+			expected: "яяяшш",
+			wantErr:  false,
+		},
+		// Emoji
+		{
+			name:     "emoji expansion",
+			input:    "😊2🌟3",
+			expected: "😊😊🌟🌟🌟",
 			wantErr:  false,
 		},
 	}
